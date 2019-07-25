@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Character extends Model
 {
+    protected $casts = [
+        'active' => 'boolean',
+        'deleted' => 'boolean'
+    ];
+
+    protected $hidden = ['race_id', 'school_house_id', 'blood_status_id'];
+
     public function blood_status() {
         return $this->belongsTo('App\BloodStatus');
     }

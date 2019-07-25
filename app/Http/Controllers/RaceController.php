@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Character;
+use App\Race;
 
-class CharacterController extends Controller
+class RaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,8 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::orderBy('id', 'DESC')->paginate(3);
-        return view('Character.index', compact('characters'));
-    }
-
-    public function apiIndex()
-    {
-        return response()->json([
-            'success' => true,
-            'message'=>'All data loaded',
-            'data' => Character::with('race', 'blood_status', 'actors')->get()
-        ]);
+        $races = Race::orderBy('id', 'DESC')->paginate(3);
+        return view('Race.index', compact('races'));
     }
 
     /**
@@ -34,7 +25,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('Character.create');
+        return view('Race.create');
     }
 
     /**
@@ -45,8 +36,8 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        Character::create($request->all());
-        return redirect()->route('character.index')->with('success','Registro creado satisfactoriamente');
+        Race::create($request->all());
+        return redirect()->route('race.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
