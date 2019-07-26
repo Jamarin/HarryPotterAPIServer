@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Data extends Model
 {
+    protected $hidden = ['pivot'];
+
     protected $casts = [
         'active' => 'boolean',
         'deleted' => 'boolean'

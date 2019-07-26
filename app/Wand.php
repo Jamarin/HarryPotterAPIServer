@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wand extends Model
 {
+    protected $hidden = ['pivot'];
+
     protected $casts = [
         'active' => 'boolean',
         'deleted' => 'boolean'

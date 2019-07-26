@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolHouse extends Model
 {
+    protected $hidden = ['school_id'];
+
     protected $casts = [
         'active' => 'boolean',
         'deleted' => 'boolean'

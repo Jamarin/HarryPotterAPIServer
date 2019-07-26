@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
+    protected $hidden = ['pivot', 'media_type_id'];
+
     protected $casts = [
         'active' => 'boolean',
         'deleted' => 'boolean'

@@ -23,7 +23,7 @@ class CharacterController extends Controller
         return response()->json([
             'success' => true,
             'message'=>'All data loaded',
-            'data' => Character::with('race', 'blood_status', 'actors')->get()
+            'data' => Character::with('race', 'blood_status', 'actors', 'jobs.organization', 'medias.media_type', 'school_house.school', 'wands')->get()
         ]);
     }
 

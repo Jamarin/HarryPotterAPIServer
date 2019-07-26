@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
+    protected $hidden = ['pivot', 'organization_id'];
+
     protected $casts = [
         'active' => 'boolean',
         'deleted' => 'boolean'

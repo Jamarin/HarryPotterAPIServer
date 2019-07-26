@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('character', 'CharacterController@apiIndex');
+Route::middleware('cors')->get('character', 'CharacterController@apiIndex');
 
 //Route::resource('character', 'CharacterController');

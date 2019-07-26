@@ -13,6 +13,10 @@ class Character extends Model
 
     protected $hidden = ['race_id', 'school_house_id', 'blood_status_id'];
 
+    public function getImageAttribute() {
+        return url('/').'/img/'.$this->attributes['image'];
+    }
+
     public function blood_status() {
         return $this->belongsTo('App\BloodStatus');
     }
@@ -41,7 +45,7 @@ class Character extends Model
         return $this->belongsToMany('App\Wand');
     }
 
-    public function job() {
+    public function jobs() {
         return $this->belongsToMany('App\Job');
     }
 }
